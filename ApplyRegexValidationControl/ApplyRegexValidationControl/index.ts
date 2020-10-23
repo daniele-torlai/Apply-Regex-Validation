@@ -117,7 +117,15 @@ export class ApplyRegexValidationControl implements ComponentFramework.StandardC
 	{
 		// storing the latest context from the control
 		this.objContext = context;
+debugger;
+		//managing readonly and visibility
+		var readonly = this.objContext.mode.isControlDisabled;
+		var visibile = this.objContext.mode.isVisible;
+
+		this.objInputElement.disabled = readonly;
+		this.objContainer.style.display = visibile ? "block" : "none";
 	}
+
 
 	/**
 	 * Called when any value change occurs in Input Element TextBox
