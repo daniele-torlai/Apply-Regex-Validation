@@ -80,6 +80,9 @@ export class ApplyRegexValidationControl implements ComponentFramework.StandardC
 			sInputValue = context.parameters.textValueToProcess.formatted ?
 				context.parameters.textValueToProcess.formatted : "";
 		}
+
+		// Set the control value on initialization
+		this.objInputElement.setAttribute("value", sInputValue);
 		
 		if(this.isValid(context.parameters.regexExpressionToProcess))
 		{
@@ -91,9 +94,6 @@ export class ApplyRegexValidationControl implements ComponentFramework.StandardC
 		{
 			this.sNotificationToUser = context.parameters.notificationToUser.raw;
 		}
-
-		// Set the control value on initialization
-		this.objInputElement.setAttribute("value", sInputValue);
 				
 		//this.processForRegex(sInputValue as string);//Needed to run only on load of Control/Form
 
@@ -117,13 +117,21 @@ export class ApplyRegexValidationControl implements ComponentFramework.StandardC
 	{
 		// storing the latest context from the control
 		this.objContext = context;
-debugger;
+		
 		//managing readonly and visibility
 		var readonly = this.objContext.mode.isControlDisabled;
 		var visibile = this.objContext.mode.isVisible;
 
 		this.objInputElement.disabled = readonly;
 		this.objContainer.style.display = visibile ? "block" : "none";
+
+		//managing changes in control view
+		if(this.isValid(context.parameters.textValueToProcess))
+		{
+			// refresh the control value on initialization
+			var sInputValue: string = context.parameters.textValueToProcess.formatted ?context.parameters.textValueToProcess.formatted : "";
+			this.objInputElement.setAttribute("value", sInputValue);
+		}
 	}
 
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="ApplyRegexValidationNamespace" constructor="ApplyRegexValidationControl" version="0.0.2" display-name-key="Apply Regex Validation" description-key="Apply Regex Validation on Text Field" control-type="standard">
+  <control namespace="ApplyRegexValidationNamespace" constructor="ApplyRegexValidationControl" version="0.0.3" display-name-key="Apply Regex Validation" description-key="Apply Regex Validation on Text Field" control-type="standard">
     <!--
       A type-group to accept all required and supported Text Field Types
     -->
